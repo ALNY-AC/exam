@@ -18,12 +18,13 @@
 }
 
 .editel-input {
-    position: absolute;
+    position: relative;
     outline: none;
     border: none;
     background-color: #FDF9CD;
     padding: 5px 5px;
-    word-wrap: break-word;
+    /*word-wrap: nowrap;*/
+    white-space: nowrap;
     z-index: 999999;
 }
 

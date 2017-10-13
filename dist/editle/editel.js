@@ -59,7 +59,6 @@ var editel = (function() {
             });
 
             $(document).on('blur', '.' + edit.config.inputClass, function() {
-
                 /*
                  * 失去焦点后
                  * 选取之前的元素
