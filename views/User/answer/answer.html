@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <!--Answer回答题目页-->
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="pragma" content="no-cache" />
+        <link rel="stylesheet" type="text/css" href="../../..//vendor/layui/css/layui.css" />
+
+        <link rel="stylesheet" type="text/css" href="../../..//vendor/bootstrap/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="../../..//dist/answer/answer.css" />
+        <!--编辑器-->
+        <link rel="stylesheet" type="text/css" href="../../..//vendor/summernote/summernote.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../..//dist/editle/editel.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../..//dist/tool-nav/tool-nav.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../..//vendor/font-awesome/css/font-awesome.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../..//dist/prompt/css/prompt.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../..//dist/css/nav.css" />
+        <title>答题</title>
+        <style type="text/css">
+            body {
+                background-color: #f7f7f7;
+            }
+            
+            .modal-dialog {
+                z-index: 9999;
+            }
+            
+            .nav-tool {
+                margin-left: -180px;
+                z-index: 1;
+            }
+            
+            .is_login {
+                width: 700px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+
+    <body class="hidden">
+
+        <include file="App/User/View/component/answernav.html" signout='{:U("Public/signOut")}' username='{$Think.session.user_name}' letter='8' myanswer='{:U("showList")}' formurl='{:U("Paper/showList")}' />
+        <div id="top"></div>
+        <!--通过get参数获取相关题目，只有注册用户可以答题，未注册用户不能答题，未注册用户可以查看-->
+        <div class="container">
+            <!--is_login-->
+
+            <div id="peopleInfoBox">
+                <div class="pull-left nav-tool">
+                    <ul>
+                        <li class="nav-tool-item" data-type='text' id="getJson">
+                            <span class="glyphicon glyphicon-download-alt"></span>
+                            <span>获取json</span>
+                        </li>
+                        <li class="nav-tool-item" data-type='text' id="getJsonText">
+                            <span class="glyphicon glyphicon-text-size"></span>
+                            <span>获取jsonText</span>
+                        </li>
+                        <li class="nav-tool-item" data-type='text' id="help">
+                            <span class="glyphicon glyphicon-question-sign"></span>
+                            <span>帮助</span>
+                        </li>
+                        <li class="nav-tool-item" data-type='text' id="savePaperLocal">
+                            <span class="glyphicon glyphicon-floppy-disk"></span>
+                            <span>保存在本地</span>
+                        </li>
+                        <li class="nav-tool-item postServer" data-type='text'>
+                            <span class="glyphicon glyphicon-refresh"></span>
+                            <span>同步</span>
+                        </li>
+                        <li class="nav-tool-item " id="open" data-type='text'>
+                            <span class="glyphicon glyphicon-sort"></span>
+                            <span>展开</span>
+                        </li>
+                        <li class="nav-tool-item go-top" data-type='text'>
+                            <span class="glyphicon glyphicon-chevron-up"></span>
+                            <span>返回顶部</span>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="people-info-panel" style="">
+                    <strong class="text-uppercase">姓名：</strong>
+                    <div class="people-info-name">
+                        <div class="editel" id="peopleName">输入姓名</div>
+                    </div>
+                    <strong class="text-uppercase">信息：</strong>
+                    <div class="people-info-name">
+                        <div class="editel" id="peopleInfo">输入信息</div>
+                    </div>
+                    <!--用于记录当前做的试卷的id-->
+                    <input type="hidden" id="paperID" value="{$paper_id}" />
+                    <input type="hidden" id="answerID" value="{$answer_id}" />
+                </div>
+                <div class="people-info-bottom" data-toggle="tooltip" data-placement="bottom" data-original-title="点击展开 / 收起个人信息">
+                    <span class="glyphicon glyphicon-option-horizontal"></span>
+                </div>
+            </div>
+
+            <div id="answerBox">
+
+                <div class="answer-head">
+                    <div class="title">
+                        <h1 id="paperTitle">Hello Word</h1>
+                    </div>
+
+                    <div class="info">
+                        <p class="text-muted" id="paperInfo">
+
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus exercitationem fuga! Quisquam distinctio odio commodi perspiciatis omnis ex esse illum excepturi magni delectus perferendis tempore maiores nemo placeat corrupti. Unde.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div id="answerTopicBox">
+
+                </div>
+
+                <div class="answer-bottom">
+                    <button class="btn btn-info btn-block postServer">提交</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="content hidden"></div>
+        <div class="test"></div>
+
+        <script src="../../..//vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../..//vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <!--summernote-->
+        <script src="../../..//vendor/summernote/summernote.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../..//vendor/summernote/lang/summernote-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+        <!--弹出层-->
+        <script src="../../..//vendor/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+        <!--消息提示-->
+        <script src="../../..//dist/prompt/js/prompt.js" type="text/javascript" charset="utf-8"></script>
+        <!--编辑组件-->
+        <script src="../../..//dist/editle/editel.js" type="text/javascript" charset="utf-8"></script>
+        <!--答题组件-->
+        <script src="../../..//dist/answer/answer.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript ">
+            $(function() {
+
+                answer.config.getTimeUrl = '{:U("Public/getTime")}';
+                answer.config.postServerUrl = '{:U("save")}';
+
+                $.getJSON('answer.json', function(o) {
+
+                    answer.add(o);
+
+                    $('body').removeClass('hidden');
+                    $('body').addClass('layui-anim layui-anim-fadein');
+                    if(localStorage.open == 'open') {
+                        open();
+                    } else {
+                        close();
+                    }
+
+                }); //编辑器配置
+                $(document).on('click', '.edit', function() {
+
+                    var id = '#' + $(this).attr('data-content-id');
+                    $(id).summernote({
+                        height: 300, // set editor height
+                        minHeight: null, // set minimum height of editor
+                        maxHeight: null, // set maximum height of editor
+                        focus: true, // set focus to editable area after initializing summernote
+                        lang: 'zh-CN',
+                        toolbar: [
+                            //                         [groupName, [list of button]]
+
+                            ['a', ['fullscreen']],
+                            ['b', ['style', 'ol', 'ul', 'height']],
+                            ['c', ['picture', 'table', 'hr']],
+                            ['d', ['superscript', 'subscript', 'clear']],
+                            ['e', ['undo', 'redo', 'help']],
+
+                        ]
+                    });
+
+                    $(this).removeClass('edit');
+                    $(this).addClass('save');
+                    $(this).text('保存');
+
+                });
+                $(document).on('click', '.save', function() {
+                    var id = '#' + $(this).attr('data-content-id');
+
+                    var markup = $(id).summernote('code');
+                    $(id).summernote('destroy');
+
+                    $(this).removeClass('save');
+                    $(this).addClass('edit');
+                    $(this).text('编辑');
+                });
+
+                $(document).on('mouseenter', '[data-toggle="tooltip"]', function() {
+                    /*工具提示*/
+                    $(this).tooltip('show');
+                });
+                //=========================
+
+                $(document).on('click', '#getJson', function() {
+                    console.log(answer.getJson());
+                });
+                $(document).on('click', '#getJsonText', function() {
+                    console.log(answer.getJsonText());
+
+                });
+                $(document).on('click', '.go-top', function() {
+                    //回到顶部
+                    var speed = 200; //滑动的速度
+                    $('body,html').animate({
+                        scrollTop: 0
+                    }, speed);
+                });
+
+                //=========================
+                $(document).on('click', '.people-info-bottom', function() {
+                    /*
+                     * 收起个人信息面板
+                     */
+                    $('.people-info-panel').slideToggle();
+
+                });
+
+                //=========================
+
+                $(document).on('click', '#open', function() {
+
+                    if($('#peopleInfoBox').hasClass('open')) {
+                        //有了
+                        close();
+                        localStorage.open = 'close';
+                    } else {
+                        //没有
+                        open();
+                        localStorage.open = 'open';
+
+                    }
+                });
+
+                function open() {
+                    $('#peopleInfoBox,#answerBox,.answer-head,.answer-topic-panel').addClass('open');
+                }
+
+                function close() {
+                    $('#peopleInfoBox,#answerBox,.answer-head,.answer-topic-panel').removeClass('open');
+
+                }
+
+            })
+        </script>
+
+    </body>
+
+</html>

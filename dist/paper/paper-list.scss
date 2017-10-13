@@ -1,0 +1,117 @@
+* {
+    font-family: "微软雅黑";
+}
+
+.panel-right {
+    /*右面板*/
+    position: absolute;
+    left: 240px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    background-color: #f7f7f7;
+}
+
+.paper-list-box {
+    //右面板组件容器
+    position: relative;
+    width: 1313px;
+    margin: 0 auto;
+}
+
+#paperPanelList {
+    //试卷面板容器
+    padding: 0;
+    padding-top: 5px;
+    margin-right: -50px;
+    margin-bottom: 150px;
+    list-style: none;
+}
+
+.paper-panel {
+    //试卷面板组件
+    position: relative;
+    width: 290px;
+    height: 150px;
+    top: 0;
+    float: left;
+    z-index: 2;
+    //============
+    border: solid 1px rgba(39, 54, 78, 0.1);
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(151, 156, 162, 0.15);
+    -moz-box-shadow: 0px 1px 2px 0px rgba(151, 156, 162, 0.15);
+    box-shadow: 0px 1px 2px 0px rgba(151, 156, 162, 0.15);
+    border-radius: 5px;
+    //============
+    margin-right: 50px;
+    margin-bottom: 50px;
+    //============
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+    .paper-panel-head {
+        //试卷面板头部，顶部工具栏
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+    }
+    .paper-panel-body {
+        //试卷面板身体，试卷标题容器
+        width: 100%;
+        height: 40px;
+        overflow: hidden;
+        .paper-panel-title {
+            //试卷面板标题，试卷标题
+            position: relative;
+            padding: 0 30px;
+            display: inline-block;
+        }
+    }
+    .paper-panel-bottom {
+        //试卷面板底部工具栏
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        bottom: 0;
+        display: none;
+        border-top: solid 1px #d9d9d9;
+        z-index: 20;
+    }
+    .paper-panel-tool {
+        //试卷面板工具组件
+        height: 40px;
+        float: right;
+        line-height: 40px;
+        padding: 0 16px;
+        color: #999;
+    }
+    &.paper-panel-show {
+        //被显示状态
+        .paper-panel-head {
+            //被显示状态
+            border-top: solid 5px #5bc0de;
+        }
+    }
+    &.paper-panel-noshow {
+        //未被显示状态
+        .paper-panel-head {
+            //未被显示状态
+            border-top: solid 5px #d9534f;
+            border-color: transparent;
+        }
+    }
+    &:hover {
+        top: -5px;
+        box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+        .paper-panel-bottom {
+            display: block;
+        }
+        .paper-panel-head {
+            border-color: transparent;
+        }
+    }
+}

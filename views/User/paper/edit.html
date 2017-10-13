@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta http-equiv="pragma" content="no-cache" />
+        <title>编辑试卷</title>
+        <link rel="stylesheet" type="text/css" href="../../../vendor/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../vendor/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/css/nav.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../../dist/topic/topic.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../../dist/editle/editel.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/mTips/mTips.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/prompt/css/prompt.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../../vendor/summernote/summernote.css" />
+        <!---->
+        <link rel="stylesheet" type="text/css" href="../../../dist/tool-nav/tool-nav.css" />
+
+        <style type="text/css">
+            .modal-dialog {
+                z-index: 9999;
+            }
+            
+            body {
+                background-color: #f7f7f7;
+                padding-bottom: 500px;
+                padding-top: 20px;
+            }
+            
+            .placeholder {
+                width: 100%;
+                border: dashed 2px #777;
+                height: 100px;
+                background-color: #FDF9CD;
+                margin: 10px 0 10px 0;
+                font-size: 30px;
+                padding-left: 20px;
+                color: #777;
+                font-weight: bold;
+                line-height: 100px;
+            }
+            
+            .placeholder:before {
+                content: "释放鼠标放置题目";
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="container paper-box">
+            <div class="pull-left nav-tool">
+                <ul>
+                    <li class="nav-tool-item add-paper-item" data-type='checkbox'>
+                        <span class="glyphicon glyphicon-check"></span>
+                        <span>多选题</span>
+                    </li>
+                    <li class="nav-tool-item add-paper-item" data-type='radio'>
+                        <span class="glyphicon glyphicon-record"></span>
+                        <span>单选题</span>
+                    </li>
+                    <li class="nav-tool-item add-paper-item" data-type='text'>
+                        <span class="glyphicon glyphicon-edit"></span>
+                        <span>解答题</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="getJson">
+                        <span class="glyphicon glyphicon-download-alt"></span>
+                        <span>获取json</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="getAnswerJson">
+                        <span class="glyphicon glyphicon-text-size"></span>
+                        <span>获得答题json</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="getJsonText">
+                        <span class="glyphicon glyphicon-text-size"></span>
+                        <span>获取jsonText</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="help">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                        <span>帮助</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="savePaperLocal">
+                        <span class="glyphicon glyphicon-floppy-disk"></span>
+                        <span>保存在本地</span>
+                    </li>
+                    <li class="nav-tool-item" data-type='text' id="postServer">
+                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                        <span>提交到服务器</span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <ul id="paper">
+                <input type="hidden" id="paperID" value="1" />
+
+                <li class="paper-head">
+                    <div class="paper-head-title">
+                        <div class="editel" id="paperTitle">练习题</div>
+                    </div>
+                    <div class="topic-box">
+                        <div class="topic-menu">
+                        </div>
+                        <div class="topic-content">
+                            <div class="editel" id="paperInfo">这是第一张试卷，这里是试卷的介绍。</div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Modal -->
+
+        <div id="myModal" class="modal fade" data-backdrop='static' tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title editel" id="mTitle">填空题</h4>
+                    </div>
+                    <div class="modal-body">
+                        <!--<div id="topicEdit" name="content" type="text/plain"></div>-->
+                        <div id="topicEdit" type="text/plain"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" id="close" class="btn btn-default" data-Tid='' data-Cid='' data-dismiss="modal">关闭</button>-->
+                        <button type="button" id="save" class="btn btn-primary">保存</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="testbox"></div>
+        <script src="../../../vendor/jquery/jquery-2.1.0.js"></script>
+        <script src="../../../vendor/jqueryUI/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+
+        <!--自定义js-->
+        <script src="../../../dist/mTips/mTips.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../dist/editle/editel.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../dist/prompt/js/prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../dist/topic/topic.js" type="text/javascript" charset="utf-8"></script>
+        <!--end/自定义js-->
+
+        <!--summernote-->
+        <script src="../../../vendor/summernote/summernote.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../vendor/summernote/lang/summernote-zh-CN.js" type="text/javascript" charset="utf-8"></script>
+        <!--end/summernote-->
+
+        <!--动态添加组件-->
+
+        <script type="text/javascript">
+            paperBuild.config.box = '#paper'; //设置题目的容器
+
+            editel.config.endFunction = function(em) {
+                if(em.parent().hasClass('topic-item-title')) {
+                    if(!em.html()) {
+                        em.parents('.topic-item').remove();
+                        paperBuild.sort();
+                    }
+
+                }
+
+            }
+
+            $(function() {
+                //编辑器配置
+                $('#topicEdit').summernote({
+                    height: 300, // set editor height
+                    minHeight: null, // set minimum height of editor
+                    maxHeight: null, // set maximum height of editor
+                    focus: true, // set focus to editable area after initializing summernote
+                    lang: 'zh-CN'
+                });
+
+                $.getJSON('edit.json?id=' + Math.random(), function(oo) {
+
+                    paperBuild.jsonToPaper(oo);
+                    paperBuild.save();
+
+                });
+
+                $(document).on('mouseenter', '[data-toggle="tooltip"]', function() {
+                    $(this).tooltip('show');
+                });
+
+                //用模态框编辑题目
+                $(document).on('click', '.openEdit', function() {
+
+                    var paperItemID = '#' + $(this).parents(".topic-item-box").attr('id'); //获取顶级容器的id
+
+                    $('#close').attr('data-item-id', paperItemID); //设置关闭按钮的两个属性
+                    $('#save').attr('data-item-id', paperItemID); //设置保存按钮的两个属性
+
+                    $('#mTitle').text($(paperItemID).find('.topic-title .editel').text()); //设置模态框标题为原本的标题
+
+                    $('#topicEdit').html(''); //初始化编辑器为空
+
+                    $('#topicEdit').summernote('code', $(paperItemID).find('.topic-text').html());
+
+                    $('#myModal').modal('show'); //让模特框显示
+
+                });
+                $(document).on('click', '#save', function() {
+                    //保存操作
+                    var paperItemID = $(this).attr('data-item-id'); //获得paperItem的id
+                    $(paperItemID).find('.topic-title .editel').text($('#mTitle').text()); //设置标题
+                    $(paperItemID).find('.topic-text').html($('#topicEdit').summernote('code')); //从编辑器中取出内容设置到原题目的内容区
+
+                    $('#myModal').modal('hide'); //关闭模态框
+                });
+
+                //==========================================
+
+                $(document).on('click', '.add-paper-item', function() {
+                    //添加选项
+                    paperBuild.add($(this).attr('data-type'));
+                    prompt.show({
+                        text: '添加成功~',
+                        position: 'bottom'
+                    });
+                });
+                //==========================================
+
+                $(document).on('mouseenter', '[data-toggle="tooltip"]', function() {
+                    /*工具提示*/
+                    $(this).tooltip('show');
+                });
+
+                //==========================================
+                //获得
+
+                $(document).on('click', '#getJsonText', function() {
+                    //获得文本
+                    console.log(paperBuild.getJsonText());
+                });
+
+                $(document).on('click', '#getJson', function() {
+                    //获得json
+                    console.log(paperBuild.getJson());
+                });
+
+                $(document).on('click', '#getAnswerJson', function() {
+                    //获得答题json
+                    console.log(paperBuild.getAnswerJson());
+
+                });
+
+                //==========================================
+                //jqui
+                $("#paper").sortable({
+                    placeholder: "placeholder", //占位符
+                    items: ".topic-item-box", //谁能动
+                    handle: ".topic-menu-num,.topic-title", //拖拽句柄
+                    start: function(event, ui) {
+                        //开始
+                        //                      ui.item.css('opacity', '1');
+                        ui.item.css('box-shadow', '0px 6px 20px 0px rgba(0, 0, 0, 0.1)');
+                        ui.item.css('transform', 'rotateZ(3deg)');
+
+                    },
+                    stop: function(event, ui) {
+                        //                      ui.item.css('opacity', '1');
+                        ui.item.css('box-shadow', 'none');
+                        ui.item.css('transform', 'none');
+                        paperBuild.sort();
+                        prompt.show({
+                            text: '放置成功~',
+                        });
+
+                    },
+
+                });
+                $("#paper").disableSelection();
+
+            })
+        </script>
+    </body>
+
+</html>

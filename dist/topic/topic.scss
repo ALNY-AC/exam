@@ -1,0 +1,165 @@
+.paper-box {
+    position: relative;
+}
+
+#paper {
+    /*题目容器*/
+    position: relative;
+    margin: 0 auto;
+    width: 850px;
+    list-style: none;
+    padding: 0;
+    top: 0;
+    word-wrap: break-word;
+    .topic-item-box,
+    .paper-head {
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+        /*题目容器*/
+        position: relative;
+        margin-top: 10px;
+        background-color: #fff;
+        .topic-box {
+            /*题目容器*/
+            min-height: 160px;
+            height: 100%;
+            position: relative;
+            padding-left: 50px;
+            padding-bottom: 20px;
+            .topic-menu {
+                /*题目菜单*/
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 50px;
+                text-align: center;
+                color: #666;
+                border-right: solid 1px #eee;
+                .topic-menu-num {
+                    /*题目题号*/
+                    height: 30px;
+                    line-height: 30px;
+                    margin: 5px 0;
+                    font-size: 14px;
+                    overflow: hidden;
+                    text-align: center;
+                    cursor: move;
+                }
+                .topic-menu-tool {
+                    /*题目工具*/
+                    display: none;
+                    a {
+                        color: #999;
+                        display: block;
+                        padding: 5px;
+                        &:hover {
+                            color: #09c;
+                        }
+                    }
+                }
+            }
+            .topic-title {
+                /*题目标题*/
+                padding: 5px 10px;
+                font-size: 15px;
+                cursor: move;
+            }
+            .topic-content {
+                /*题目内容容器*/
+                padding: {
+                    bottom: 30px;
+                    right: 5px;
+                }
+                border-top: solid 1px #eee;
+                .topic-item {
+                    /*题目内容项组件，可多个，可单个*/
+                    position: relative;
+                    padding-left: 20px;
+                    margin: 5px 0;
+                    .topic-input {
+                        /*选项组件的input容器*/
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 5px;
+                    }
+                    .topic-title {
+                        /*选项组件的标题容器*/
+                    }
+                    .topic-text {
+                        margin-left: -10px;
+                        width: 100%;
+                        padding: 5px;
+                        min-height: 160px;
+                        * {
+                            max-width: 100%;
+                        }
+                        img {
+                            border-radius: 5px;
+                        }
+                        &:hover {
+                            background-color: #FDF9CD;
+                        }
+                        &:empty {
+                            &::before {
+                                color: #C0C0C0;
+                                content: attr(placeholder);
+                            }
+                        }
+                    }
+                }
+            }
+            .topic-bottom {
+                /*试卷底部工具栏*/
+                position: absolute;
+                bottom: 0;
+                display: none;
+                .topic-bottom-item {
+                    text-align: center;
+                    display: inline-block;
+                    color: #999;
+                    padding: 5px;
+                    .fraction {
+                        max-width: 80px;
+                    }
+                    &:hover {
+                        color: #09c;
+                    }
+                }
+            }
+            &:hover {
+                .topic-menu-tool {
+                    display: block;
+                }
+                .topic-bottom {
+                    display: block;
+                }
+            }
+        }
+    }
+    .paper-head {
+        /*试卷头部容器*/
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        margin: 0;
+        .paper-head-title {
+            /*试卷标题*/
+            text-align: center;
+            padding: 5px 10px;
+            font-size: 20px;
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+        .topic-box {
+            min-height: 0;
+            .topic-menu {
+                /*试卷菜单*/
+                border-top: solid 1px #eee;
+            }
+            .topic-content {
+                padding: 5px;
+            }
+        }
+    }
+}

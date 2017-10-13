@@ -1,0 +1,47 @@
+[
+    {
+        "type": "checkbox",
+        "title": "复选题",
+        "id": "cfjctfdlekm88069",
+        "content": [
+            {
+                "checked": true,
+                "id": "spyhrdqiorj88070",
+                "title": "复选项"
+            }, {
+                "checked": true,
+                "id": "umnagktlufq88070",
+                "title": "复选项"
+            }, {
+                "checked": true,
+                "id": "rsbkoufaqlh88070",
+                "title": "复选项"
+            }, {
+                "checked": false,
+                "id": "vtnhhvlqfti88070",
+                "title": "复选项"
+            }
+        ]
+    }, {
+        "type": "radio",
+        "title": "单选题",
+        "id": "mupbeevwnvv88300",
+        "content": [
+            {
+                "checked": false,
+                "id": "oxrnqplsulc88300",
+                "title": "单选项"
+            }, {
+                "checked": true,
+                "id": "sevndvjpkoa88300",
+                "title": "单选项"
+            }
+        ]
+    }, {
+        "type": "text",
+        "title": "解答题",
+        "id": "cemjldxhwmx88596",
+        "answer": "",
+        "content": "<h1 style=\"text-align: center; \">Lorem ipsum&nbsp;</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dolor sit amet, <b>consectetur</b> adipisicing<u> elit. Asperiores a iusto modi voluptates est nihil</u> nostrum voluptatibus accusantium aliquid molestias q<font face=\"Arial Black\">uod rerum in architecto exercita</font>tionem minus itaque maxime odio<span style=\"background-color: rgb(255, 156, 0);\"> suscipit!</span></p><p><span style=\"background-color: rgb(255, 156, 0);\"><br></span></p><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul><p><img src=\"https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1508364891&amp;di=0201ea4b857a75dc1b234fe767f5c0f1&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.cdn.gn00.com%2Fforum%2F201212%2F30%2F113440r44fixoric0orqwc.jpg\" style=\"width: 846px;\"><br></p>"
+    }
+]

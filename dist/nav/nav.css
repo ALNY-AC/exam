@@ -1,0 +1,87 @@
+.navbar-ap {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-background-color {
+    background-color: #201a16;
+}
+
+.navbar-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-btn:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.navbar-default .navbar-nav > li {}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    padding: 10px;
+}
+
+.navbar-default .navbar-nav > li > a.active {
+    border: solid 1px #fff;
+}
+
+.navbar-default .navbar-nav > li > a.active:hover {
+    border: solid 1px #fff;
+    background-color: #fff;
+    color: #000;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #777;
+}
+
+.navbar-default .navbar-brand {
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #777;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar {
+    background-color: #777;
+}
+
+.sr-only {
+    color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+    /*background-color: #777;*/
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}

@@ -1,0 +1,81 @@
+@charset "UTF-8";
+* {
+  font-family: "微软雅黑"; }
+
+.panel-right {
+  /*右面板*/
+  position: absolute;
+  left: 240px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: #f7f7f7; }
+
+.paper-list-box {
+  position: relative;
+  width: 1313px;
+  margin: 0 auto; }
+
+#paperPanelList {
+  padding: 0;
+  padding-top: 5px;
+  margin-right: -50px;
+  margin-bottom: 150px;
+  list-style: none; }
+
+.paper-panel {
+  position: relative;
+  width: 290px;
+  height: 150px;
+  top: 0;
+  float: left;
+  z-index: 2;
+  border: solid 1px rgba(39, 54, 78, 0.1);
+  background-color: #fff;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(151, 156, 162, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(151, 156, 162, 0.15);
+  border-radius: 5px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s; }
+  .paper-panel .paper-panel-head {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px; }
+  .paper-panel .paper-panel-body {
+    width: 100%;
+    height: 40px;
+    overflow: hidden; }
+    .paper-panel .paper-panel-body .paper-panel-title {
+      position: relative;
+      padding: 0 30px;
+      display: inline-block; }
+  .paper-panel .paper-panel-bottom {
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    bottom: 0;
+    display: none;
+    border-top: solid 1px #d9d9d9;
+    z-index: 20; }
+  .paper-panel .paper-panel-tool {
+    height: 40px;
+    float: right;
+    line-height: 40px;
+    padding: 0 16px;
+    color: #999; }
+  .paper-panel.paper-panel-show .paper-panel-head {
+    border-top: solid 5px #5bc0de; }
+  .paper-panel.paper-panel-noshow .paper-panel-head {
+    border-top: solid 5px #d9534f;
+    border-color: transparent; }
+  .paper-panel:hover {
+    top: -5px;
+    -webkit-box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1); }
+    .paper-panel:hover .paper-panel-bottom {
+      display: block; }
+    .paper-panel:hover .paper-panel-head {
+      border-color: transparent; }

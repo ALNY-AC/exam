@@ -1,0 +1,33 @@
+[
+    {
+        "id": "paper1",
+        "answer_url": "answer.html?id=paper1",
+        "title": "Lorem ipsum 1",
+        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "answer_fraction": "99"
+    }, {
+        "id": "paper2",
+        "answer_url": "answer.html?id=paper2",
+        "title": "Lorem ipsum 2",
+        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "answer_fraction": "99"
+    }, {
+        "id": "paper3",
+        "answer_url": "answer.html?id=paper3",
+        "title": "Lorem ipsum 3",
+        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "answer_fraction": "99"
+    }, {
+        "id": "paper4",
+        "answer_url": "answer.html?id=paper4",
+        "title": "Lorem ipsum 4",
+        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "answer_fraction": "99"
+    }, {
+        "id": "paper5",
+        "answer_url": "answer.html?id=paper5",
+        "title": "Lorem ipsum 5",
+        "info": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "answer_fraction": "99"
+    }
+]

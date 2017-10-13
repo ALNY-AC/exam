@@ -1,0 +1,120 @@
+{
+    "answer_content": [
+        {
+            "type": "radio",
+            "title": "第一代电子数字计算机适应的程序设计语言为______。",
+            "id": "aqhumedusal79718",
+            "content": [
+                {
+                    "checked": false,
+                    "id": "lotqcmncjfm79718",
+                    "title": "机器语言"
+                }, {
+                    "checked": false,
+                    "id": "kxuycyclsbr79718",
+                    "title": "高级语言"
+                }, {
+                    "checked": false,
+                    "id": "uwjthjayody02540",
+                    "title": "数据库语言"
+                }, {
+                    "checked": false,
+                    "id": "orybxbrvklh03116",
+                    "title": "可视化语言"
+                }
+            ]
+        }, {
+            "type": "checkbox",
+            "title": "（多选）以下不属于电子邮件地址的是_________。",
+            "id": "omnaqerydcj43388",
+            "content": [
+                {
+                    "checked": false,
+                    "id": "lofnwrrfrml43388",
+                    "title": "ly@yahoo.com.cn"
+                }, {
+                    "checked": false,
+                    "id": "jtbaprujxwo43389",
+                    "title": "ly@163.com.cn"
+                }, {
+                    "checked": false,
+                    "id": "ngismftkgak43389",
+                    "title": "ly&126.com.cn"
+                }, {
+                    "checked": false,
+                    "id": "jcqnmvqyioy43389",
+                    "title": "ly.baidu.com "
+                }
+            ]
+        }, {
+            "type": "text",
+            "title": "文字处理",
+            "id": "uisyonprjan22542",
+            "answer": "",
+            "content": "<h1 style=\"line-height: 1.42857;\"><font face=\"Helvetica\">文字处理</font></h1><p style=\"line-height: 1.42857;\"><span style=\"font-family: Helvetica;\">打开当前试题目录下的\"TEST240.DOC\"文件，并完成下面操作：</span><font face=\"Helvetica\"><br></font></p><p style=\"line-height: 1.42857;\"></p><p style=\"line-height: 1.42857;\"></p><ol><ol></ol></ol><ol><ol></ol></ol><ol><ol></ol></ol><p></p><ol><li><font face=\"Helvetica\">将其中所有的\"DOS\"替换为\"磁盘操作系统\"；</font></li><li><font face=\"Helvetica\">将第一个句号后的内容另起一段；</font></li><li><font face=\"Helvetica\">将第二段内容设置为楷体_GB2312小四号。</font></li></ol><p><font face=\"Helvetica\"> 操作完成后以原文件名保存在考生文件夹下。</font></p>"
+        }
+    ],
+    "paper_content": {
+        "paperInfo": {
+            "title": "计算机一级office测试题",
+            "info": "计算机一级office测试题"
+        },
+        "topics": [
+            {
+                "type": "radio",
+                "title": "第一代电子数字计算机适应的程序设计语言为______。",
+                "id": "aqhumedusal79718",
+                "fraction": "1",
+                "content": [
+                    {
+                        "checked": true,
+                        "id": "lotqcmncjfm79718",
+                        "title": "机器语言"
+                    }, {
+                        "checked": false,
+                        "id": "kxuycyclsbr79718",
+                        "title": "高级语言"
+                    }, {
+                        "checked": false,
+                        "id": "uwjthjayody02540",
+                        "title": "数据库语言"
+                    }, {
+                        "checked": false,
+                        "id": "orybxbrvklh03116",
+                        "title": "可视化语言"
+                    }
+                ]
+            }, {
+                "type": "checkbox",
+                "title": "（多选）以下不属于电子邮件地址的是_________。",
+                "id": "omnaqerydcj43388",
+                "fraction": "1",
+                "content": [
+                    {
+                        "checked": false,
+                        "id": "lofnwrrfrml43388",
+                        "title": "ly@yahoo.com.cn"
+                    }, {
+                        "checked": false,
+                        "id": "jtbaprujxwo43389",
+                        "title": "ly@163.com.cn"
+                    }, {
+                        "checked": true,
+                        "id": "ngismftkgak43389",
+                        "title": "ly&126.com.cn"
+                    }, {
+                        "checked": true,
+                        "id": "jcqnmvqyioy43389",
+                        "title": "ly.baidu.com "
+                    }
+                ]
+            }, {
+                "type": "text",
+                "title": "文字处理",
+                "id": "uisyonprjan22542",
+                "fraction": "10",
+                "content": "<h1 style=\"line-height: 1.42857;\"><font face=\"Helvetica\">文字处理</font></h1><p style=\"line-height: 1.42857;\"><span style=\"font-family: Helvetica;\">打开当前试题目录下的\"TEST240.DOC\"文件，并完成下面操作：</span><font face=\"Helvetica\"><br></font></p><p style=\"line-height: 1.42857;\"></p><p style=\"line-height: 1.42857;\"></p><ol><ol></ol></ol><ol><ol></ol></ol><ol><ol></ol></ol><p></p><ol><li><font face=\"Helvetica\">将其中所有的\"DOS\"替换为\"磁盘操作系统\"；</font></li><li><font face=\"Helvetica\">将第一个句号后的内容另起一段；</font></li><li><font face=\"Helvetica\">将第二段内容设置为楷体_GB2312小四号。</font></li></ol><p><font face=\"Helvetica\"> 操作完成后以原文件名保存在考生文件夹下。</font></p>"
+            }
+        ]
+    }
+}

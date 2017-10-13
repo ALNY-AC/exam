@@ -1,0 +1,56 @@
+a {
+  display: block;
+  text-decoration: none; }
+  a:link, a:visited {
+    color: #14191e;
+    text-decoration: none; }
+  a:hover {
+    text-decoration: none; }
+
+.list-panel {
+  position: relative;
+  width: 276px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fff;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-box-shadow: 0px 4px 8px 0px rgba(7, 17, 27, 0.1);
+          box-shadow: 0px 4px 8px 0px rgba(7, 17, 27, 0.1);
+  margin-bottom: 50px; }
+  .list-panel .list-panel-head {
+    position: relative;
+    height: 96px;
+    overflow: hidden; }
+  .list-panel .list-panel-body {
+    position: relative;
+    height: 220px;
+    padding: 22px 24px 24px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    .list-panel .list-panel-body .title {
+      font-size: 16px;
+      line-height: 28px;
+      color: #777; }
+    .list-panel .list-panel-body .info {
+      font-size: 12px;
+      line-height: 24px;
+      color: #93999f;
+      font-weight: 200;
+      max-height: 48px;
+      word-break: break-all;
+      word-wrap: break-word;
+      overflow: hidden;
+      display: -webkit-box; }
+  .list-panel .list-panel-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 22px 24px 24px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #f01414; }
+  .list-panel:hover {
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(7, 17, 27, 0.2);
+            box-shadow: 0px 8px 16px 0px rgba(7, 17, 27, 0.2); }

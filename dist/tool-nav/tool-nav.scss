@@ -1,0 +1,25 @@
+.nav-tool {
+    /*工具组件容器*/
+    position: fixed;
+    z-index: 999;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            cursor: pointer;
+            transition: all 0.1s;
+            &.nav-tool-item {
+                color: #666;
+                border-bottom: 1px solid #eaedf1;
+                background-color: #fff;
+                padding: 10px;
+            }
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

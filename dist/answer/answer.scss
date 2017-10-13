@@ -1,0 +1,146 @@
+
+
+$open_margin:30px 0;
+$open_radius:6px;
+#peopleInfoBox {
+    width: 700px;
+    margin: 10px auto;
+    background-color: #fff;
+    padding: 20px 20px 0 20px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s;
+    .people-info-bottom {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+            .glyphicon {
+                color: #ccc;
+            }
+        }
+    }
+    &.open {
+        border-radius: $open_radius;
+    }
+}
+
+#answerBox {
+    position: relative;
+    width: 700px;
+    margin: 20px auto;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    background-color: #fff;
+    &.open {
+        background-color: transparent;
+        box-shadow: none;
+    }
+}
+
+.answer-head {
+    /*
+     * 回答面板的头部
+     */
+    padding: 10px 20px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    transition: all 0.3s;
+    border-bottom: dashed 1px #ccc;
+    &.open {
+        margin: $open_margin;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+        border-radius: $open_radius;
+        border-bottom: none;
+    }
+}
+
+.answer-topic-panel {
+    /*
+     * 答题面板
+     */
+    position: relative;
+    padding: 20px 20px;
+    background-color: #fff;
+    transition: all 0.3s;
+    word-wrap: break-word;
+    .answer-topic-panel-title {
+        font-size: 18px;
+        .answer-topic-num {
+            font-weight: bold;
+        }
+    }
+    .answer-topic-info {
+        /*
+         * 题目信息容器
+         */
+        position: relative;
+        padding: 20px;
+        margin: 10px 0;
+        transition: all 0.1s;
+        border: dashed 1px #ddd;
+        z-index: 2;
+        &:hover {}
+        .info-content {
+            /*
+             * 题目描述容器
+             */
+            * {
+                max-width: 100%;
+            }
+            img {
+                border-radius: 5px;
+            }
+        }
+    }
+    .answer-tool {
+        /*
+         * 题目按钮工具容器
+         */
+        padding-top: 10px;
+        * {
+            margin-left: 10px;
+        }
+    }
+    .answer-topic-panel-content {
+        /*
+         * 题目内容容器，复选、单选都在这里
+         */
+        padding-left: 20px;
+    }
+    .answer-topic-panel-content[data-type='text'] {
+        /*
+         * 解答题容器
+         */
+        padding-left: 0;
+        .content-text {
+            /*
+             * 解答题答案输入处
+             */
+            border: dashed 1px #ddd;
+            padding: 20px;
+            &:empty {
+                &::before {
+                    color: #C0C0C0;
+                    content: attr(placeholder);
+                }
+            }
+        }
+    }
+    &.open {
+        margin: $open_margin;
+        background-color: #fff;
+        box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+        border-radius: $open_radius;
+    }
+}
+
+.answer-bottom {
+    /*
+     * 回答面板的底部
+     */
+    padding: 20px;
+}

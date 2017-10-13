@@ -1,0 +1,125 @@
+@charset "UTF-8";
+#peopleInfoBox {
+  width: 700px;
+  margin: 10px auto;
+  background-color: #fff;
+  padding: 20px 20px 0 20px;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+  #peopleInfoBox .people-info-bottom {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    cursor: pointer; }
+    #peopleInfoBox .people-info-bottom:hover .glyphicon {
+      color: #ccc; }
+  #peopleInfoBox.open {
+    border-radius: 6px; }
+
+#answerBox {
+  position: relative;
+  width: 700px;
+  margin: 20px auto;
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #fff; }
+  #answerBox.open {
+    background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+
+.answer-head {
+  /*
+   * 回答面板的头部
+   */
+  padding: 10px 20px;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  border-bottom: dashed 1px #ccc; }
+  .answer-head.open {
+    margin: 30px 0;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    border-bottom: none; }
+
+.answer-topic-panel {
+  /*
+   * 答题面板
+   */
+  position: relative;
+  padding: 20px 20px;
+  background-color: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  word-wrap: break-word; }
+  .answer-topic-panel .answer-topic-panel-title {
+    font-size: 18px; }
+    .answer-topic-panel .answer-topic-panel-title .answer-topic-num {
+      font-weight: bold; }
+  .answer-topic-panel .answer-topic-info {
+    /*
+     * 题目信息容器
+     */
+    position: relative;
+    padding: 20px;
+    margin: 10px 0;
+    -webkit-transition: all 0.1s;
+    transition: all 0.1s;
+    border: dashed 1px #ddd;
+    z-index: 2; }
+    .answer-topic-panel .answer-topic-info .info-content {
+      /*
+       * 题目描述容器
+       */ }
+      .answer-topic-panel .answer-topic-info .info-content * {
+        max-width: 100%; }
+      .answer-topic-panel .answer-topic-info .info-content img {
+        border-radius: 5px; }
+  .answer-topic-panel .answer-tool {
+    /*
+     * 题目按钮工具容器
+     */
+    padding-top: 10px; }
+    .answer-topic-panel .answer-tool * {
+      margin-left: 10px; }
+  .answer-topic-panel .answer-topic-panel-content {
+    /*
+     * 题目内容容器，复选、单选都在这里
+     */
+    padding-left: 20px; }
+  .answer-topic-panel .answer-topic-panel-content[data-type='text'] {
+    /*
+     * 解答题容器
+     */
+    padding-left: 0; }
+    .answer-topic-panel .answer-topic-panel-content[data-type='text'] .content-text {
+      /*
+       * 解答题答案输入处
+       */
+      border: dashed 1px #ddd;
+      padding: 20px; }
+      .answer-topic-panel .answer-topic-panel-content[data-type='text'] .content-text:empty::before {
+        color: #C0C0C0;
+        content: attr(placeholder); }
+  .answer-topic-panel.open {
+    margin: 30px 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 6px; }
+
+.answer-bottom {
+  /*
+   * 回答面板的底部
+   */
+  padding: 20px; }

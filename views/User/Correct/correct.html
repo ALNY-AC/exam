@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <title>批改试卷</title>
+
+        <link rel="stylesheet" type="text/css" href="../../../vendor/bootstrap/css/bootstrap.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="../../../vendor/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/css/nav.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/prompt/css/prompt.css" />
+        <link rel="stylesheet" type="text/css" href="../../../dist/correct/correct.css" />
+        <link rel="stylesheet" type="text/css" href="../../../vendor/font-awesome/css/font-awesome.css" />
+        <style type="text/css">
+
+        </style>
+
+    </head>
+
+    <body class="hidden">
+
+        <div id="correctBox">
+
+            <div class="z-box">
+                <div class="tool-nav">
+                    <span class="nav-box nav-box-left">
+
+                        <span class="glyphicon glyphicon-menu-left tool-item" id="return" data-href='../index.html' data-toggle="tooltip" data-placement="bottom" data-original-title="返回"></span>
+                        <span class="tool-item" id="user_name">张三</span>
+                    </span>
+                    <span class="nav-box nav-box-right">
+                        <span class="glyphicon glyphicon-retweet tool-item" id="auto" data-toggle="tooltip" data-placement="bottom" data-original-title="自动批改"> </span>
+                        <span class="glyphicon glyphicon-sort tool-item" id="open" data-toggle="tooltip" data-placement="bottom" data-original-title="展开"> </span>
+                        <span class="glyphicon glyphicon-cloud-upload tool-item" id="postServer" data-toggle="tooltip" data-placement="bottom" data-original-title="上传"></span>
+                        <span class="glyphicon glyphicon-floppy-disk tool-item" id="save" data-toggle="tooltip" data-placement="bottom" data-original-title="保存在本地"></span>
+                    </span>
+                </div>
+                <div class="correct-box correct-left">
+
+                </div>
+                <div class="correct-box correct-right">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="content-test" class="hidden"></div>
+        <div id="test"></div>
+
+        <script src="../../../vendor/jquery/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../vendor/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../dist/prompt/js/prompt.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../../dist/correct/correct.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            $(function() {
+
+                $.getJSON('ans.json', function(o) {
+
+                    var paper_content = o.paper_content;
+                    var answer_content = o.answer_content;
+
+                    correct.addContent(paper_content);
+                    correct.addAnswer(answer_content);
+                    correct.sort();
+                    correct.autoCorrect();
+                    correct.autoLocal();
+                    correct.save();
+
+                    //=================
+
+                    setTimeout(function() {
+                        $('body').removeClass('hidden');
+                        $('.correct-right .topic-box').each(function(index) {
+                            var id = '#' + $(this).attr('data-id');
+
+                            var h1 = $(this).css('height');
+                            var h2 = $(id).css('height');
+
+                            if(parseInt(h1) > parseInt(h2)) {
+                                $(id).css('min-height', h1);
+                            } else {
+                                $(this).css('min-height', h2);
+                            }
+
+                        });
+
+                    }, 100);
+
+                });
+
+                $('[data-toggle="tooltip"]').tooltip()
+                $(document).on('click', '#open', function() {
+
+                    if($('#correctBox').hasClass('open')) {
+                        //有了
+                        close();
+                        localStorage.correct_open = 'close';
+                    } else {
+                        //没有
+                        open();
+                        localStorage.correct_open = 'open';
+
+                    }
+                })
+                if(localStorage.correct_open == 'open') {
+                    open();
+                } else {
+                    close();
+                }
+
+                function open() {
+                    //                  $('.topic-box').each(function() {});
+                    $('#correctBox').addClass('open');
+                }
+
+                function close() {
+                    $('#correctBox').removeClass('open');
+
+                }
+
+                $(document).on('mouseenter', '.correct-right .topic-box', function() {
+                    //进入
+                    var id = '#' + $(this).attr('data-id');
+
+                    $('.correct-left .topic-box').addClass('h');
+                    $(id).removeClass('h');
+                    $(id).addClass('s');
+
+                });
+
+                $(document).on('mouseleave', '.correct-right .topic-box', function() {
+                    //离开
+
+                    $('.correct-left .topic-box').removeClass('s');
+                    $('.correct-left .topic-box').removeClass('h');
+
+                });
+
+                $(document).on('click', '.true,.or,.false', function() {
+                    $(this).parents('.topic-box').attr('data-is', $(this).attr('data-is'));
+                    correct.save();
+
+                });
+                $(document).on('click', '#return', function() {
+                    window.location.href = $(this).attr('data-href');
+                });
+                $(document).on('click', '#auto', function() {
+                    correct.autoCorrect();
+                    correct.save();
+                });
+
+            })
+        </script>
+
+    </body>
+
+</html>

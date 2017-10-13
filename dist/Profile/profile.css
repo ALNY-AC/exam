@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.content .user-profile-box {
+  position: relative;
+  width: 816px;
+  margin: 0 auto;
+  min-height: 5px;
+  /*清除浮动*/
+  /*overflow: hidden;*/
+  content: ' ';
+  display: table;
+  clear: both; }
+  .content .user-profile-box .profile {
+    padding: 130px 130px 130px 130px; }

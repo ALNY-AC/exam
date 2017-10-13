@@ -1,0 +1,214 @@
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+::-webkit-scrollbar-track {
+    background-color: #474A4C;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+::-webkit-scrollbar-thumb {
+    background-color: #4C545B;
+}
+
+#test {
+    position: fixed;
+    background-color: #f00;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+.correct-item {
+    display: block;
+    text-decoration: none;
+    transition: all 0.1s;
+    &:link,
+    &:visited {
+        color: #14191e;
+        text-decoration: none;
+    }
+    &:hover {
+        text-decoration: none;
+        box-shadow: 0px 2px 10px 0px rgba(7, 17, 27, 0.2);
+    }
+}
+
+.page-header {
+    .label {
+        margin: 0 3px;
+    }
+}
+
+body {
+    background-color: #444444;
+}
+
+#correctBox {
+    .tool-nav {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+        transition: all 0.2s;
+        width: 100%;
+        background-color: #3B3B3B;
+        color: #D6DBDF;
+        .nav-box {
+            font-family: "微软雅黑";
+            position: relative;
+            top: 0;
+            letter-spacing: -4px;
+            padding-right: 50px;
+            padding-left: 50px;
+            .tool-item {
+                cursor: pointer;
+                padding: 20px;
+                transition: all 0.3s;
+                &:hover {
+                    color: #fff;
+                }
+            }
+            #user_name {
+                letter-spacing: 0px;
+            }
+            &.nav-box-left {
+                float: left;
+            }
+            &.nav-box-right {
+                float: right;
+            }
+        }
+    }
+    .correct-box {
+        position: absolute;
+        width: 50%;
+        top: 0;
+        padding: 50px;
+        padding-top: 90px;
+        min-height: 100%;
+    }
+    .correct-left {
+        left: 0;
+        border-right: dashed 1px #D6DBDF;
+    }
+    .correct-right {
+        left: 50%;
+    }
+    .topic-box {
+        position: relative;
+        top: 0;
+        padding: 20px;
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        background-color: #333333;
+        color: #D6DBDF;
+        border-left: solid 10px #262626;
+        .topic-fraction {
+            transition: all 0.3s;
+            position: absolute;
+            line-height: 30px;
+            text-align: center;
+            width: 30px;
+            background-color: #444444;
+            border-radius: 50%;
+            top: 5px;
+            right: 5px;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2) inset;
+            font-size: 12px;
+        }
+        .topic-head {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .topic-body {
+            padding: 15px 10px;
+            .topic-content {
+                padding: 20px;
+                border: dashed 2px #D6DBDF;
+                margin: 10px 0;
+                .topic-text-content {
+                    * {
+                        max-width: 100%;
+                    }
+                    img {
+                        border-radius: 5px;
+                    }
+                }
+            }
+            .title {
+                padding-left: 10px;
+            }
+        }
+        .topic-bottom {
+            border-top: dashed 1px #D6DBDF;
+            min-height: 55px;
+            padding-top: 10px;
+            .btn {
+                margin: 0 5px;
+            }
+        }
+        &[data-is='true'] {
+            border-color: #5cb85c;
+        }
+        &[data-is='or'] {
+            border-color: #f0ad4e;
+        }
+        &[data-is='false'] {
+            border-color: #d9534f;
+        }
+        &:hover {
+            box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            transform: scale(1.01);
+            color: #fff;
+            .topic-fraction {
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3) inset;
+            }
+        }
+        &.s {
+            box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            transform: scale(1.01);
+            color: #fff;
+            .topic-fraction {
+                box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3) inset;
+            }
+        }
+        &.h {
+            opacity: 0.2;
+            z-index: 0;
+        }
+    }
+    &.open {
+        .topic-box {
+            margin-bottom: 30px;
+            border-bottom: none;
+            border-radius: 2px;
+            &.s {
+                opacity: 1;
+                color: #fff;
+                transform: none;
+            }
+            &.h {
+                opacity: 0.2;
+                z-index: 0;
+            }
+            &:hover {
+                box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.4);
+                z-index: 1;
+                transform: none;
+                color: #fff;
+            }
+        }
+    }
+}

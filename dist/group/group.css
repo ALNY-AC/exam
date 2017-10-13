@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/*==================================左导航条==================================*/
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; }
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  border-radius: 10px; }
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5bc0de; }
+
+#shrink {
+  padding: 6px 10px;
+  background-color: #5bc0de;
+  position: absolute;
+  left: 239px;
+  z-index: 1;
+  line-height: 20px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer; }
+
+.list-box {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  left: 0;
+  right: 0;
+  top: 51px;
+  bottom: 0;
+  border: 0; }
+
+.panel-left {
+  /*左导航条面板*/
+  width: 239px;
+  border-right: 1px solid #e1e1e1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  overflow: auto; }
+
+.group-list-box {
+  /*左导航条容器*/
+  margin-top: 30px;
+  width: 100%; }
+
+#GroupBox {
+  /*左导航条，分组显示*/
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.group-add-box {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+  .group-add-box #group-add {
+    margin-left: 22px;
+    background-color: #fff;
+    border: none;
+    border: solid 1px #6cd1ef;
+    color: #6cd1ef;
+    border-radius: 5px;
+    line-height: 14px;
+    padding: 10px 20px;
+    display: inline-block;
+    cursor: pointer;
+    height: 36px; }
+    .group-add-box #group-add:hover {
+      border: solid 1px #5bc0de;
+      color: #5bc0de;
+      background-color: #fff; }
+  .group-add-box #group-add-input {
+    display: none;
+    margin-left: 22px;
+    background-color: #fff;
+    border: solid 1px #6cd1ef;
+    border-radius: 5px;
+    line-height: 14px;
+    width: 200px;
+    height: 36px; }
+    .group-add-box #group-add-input input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 5px;
+      padding: 5px; }
+      .group-add-box #group-add-input input:focus {
+        outline: 0; }
+
+.group-item {
+  /*分组li项*/
+  position: relative;
+  line-height: 50px; }
+  .group-item * {
+    display: inline-block; }
+  .group-item input {
+    display: none;
+    border: 0;
+    border-radius: 4px;
+    width: 140px;
+    padding: 7px;
+    color: #000;
+    outline: 0;
+    line-height: 1;
+    margin-left: 20px; }
+  .group-item .group-move {
+    position: absolute;
+    width: 20px;
+    height: 50px;
+    cursor: move;
+    color: #fff;
+    display: none; }
+  .group-item .title {
+    /*分组下title*/
+    margin-left: 20px;
+    text-decoration: none; }
+  .group-item .group-item-right {
+    /*分组右工具*/
+    position: absolute;
+    right: 0;
+    display: none;
+    cursor: pointer; }
+    .group-item .group-item-right span {
+      padding-right: 20px; }
+  .group-item:hover {
+    /*hvoer*/
+    background-color: #5bc0de;
+    color: #fff; }
+    .group-item:hover .group-item-right {
+      /*分组组件右工具*/
+      display: inline-block; }
+    .group-item:hover .title {
+      /*分组标题*/
+      background-color: #5bc0de;
+      color: #fff; }
+    .group-item:hover .group-move {
+      display: inline-block; }
+  .group-item.active {
+    /*鼠标焦点类开始*/
+    /*分组组件被选中*/
+    background-color: #5bc0de;
+    color: #fff; }
+    .group-item.active .group-item-right {
+      /*分组组件右工具*/
+      display: inline-block; }
+    .group-item.active .title {
+      /*分组标题*/
+      background-color: #5bc0de;
+      color: #fff; }
+    .group-item.active .group-move {
+      display: inline-block; }

@@ -1,0 +1,34 @@
+/**
+ * 当前文件版本：v0.3
+ * 一款可以让div可编辑的工具
+ * ============================================
+ * 项目地址：
+ * 作者：见两小儿便日
+ * 作者地址：https://github.com/ALNY-AC
+ * ============================================
+ * 
+ * */
+
+.editel {
+    padding: 5px 5px;
+}
+
+.editel:hover {
+    background-color: #FDF9CD;
+}
+
+.editel-input {
+    position: absolute;
+    outline: none;
+    border: none;
+    background-color: #FDF9CD;
+    padding: 5px 5px;
+    word-wrap: break-word;
+    z-index: 999999;
+}
+
+.editel-style {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

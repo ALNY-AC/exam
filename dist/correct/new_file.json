@@ -1,0 +1,52 @@
+{
+    "paperInfo": {
+        "title": "练习题2",
+        "info": "                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates architecto a aut minima explicabo inventore ducimus adipisci omnis animi iure quasi voluptate delectus veniam maiores eius! Ipsum itaque eveniet soluta!"
+    },
+    "topics": [
+        {
+            "type": "checkbox",
+            "title": "复选题",
+            "id": "cfjctfdlekm88069",
+            "content": [
+                {
+                    "checked": true,
+                    "id": "spyhrdqiorj88070",
+                    "title": "复选项"
+                }, {
+                    "checked": true,
+                    "id": "umnagktlufq88070",
+                    "title": "复选项"
+                }, {
+                    "checked": true,
+                    "id": "rsbkoufaqlh88070",
+                    "title": "复选项"
+                }, {
+                    "checked": true,
+                    "id": "vtnhhvlqfti88070",
+                    "title": "复选项"
+                }
+            ]
+        }, {
+            "type": "radio",
+            "title": "单选题",
+            "id": "mupbeevwnvv88300",
+            "content": [
+                {
+                    "checked": false,
+                    "id": "oxrnqplsulc88300",
+                    "title": "单选项"
+                }, {
+                    "checked": false,
+                    "id": "sevndvjpkoa88300",
+                    "title": "单选项"
+                }
+            ]
+        }, {
+            "type": "text",
+            "title": "解答题",
+            "id": "cemjldxhwmx88596",
+            "content": ""
+        }
+    ]
+}
